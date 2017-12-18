@@ -26,7 +26,7 @@ export class AsteroidsComponent implements OnInit {
   ) {
   }
 
-    ngOnInit() {
+  ngOnInit() {
     this.formBusca = this.fb.group({
       start_date: new FormControl(''),
       end_date: new FormControl(''),
@@ -34,16 +34,8 @@ export class AsteroidsComponent implements OnInit {
     });
 
     this.astService.getAsteroides().subscribe((busca: Busca) => {
-      let mapArray = new Map(Object.entries(busca.near_earth_objects));
-      mapArray.forEach((attr, key) => {
-        let formatedArray = {
-          'data': key,
-          'neo': attr
-        };
-        this.asteroides.push(formatedArray);
-      });
+      this.asteroides = Util.dataToModel(busca.near_earth_objects);
       this.asteroides = this.sortByDate(this.asteroides);
-      console.log(this.asteroides);
     });
   }
 
@@ -52,22 +44,14 @@ export class AsteroidsComponent implements OnInit {
     form.end_date = Util.formatDate(form.end_date);
     this.asteroides = [];
     this.astService.getAsteroides(form).subscribe((busca: Busca) => {
-      let mapArray = new Map(Object.entries(busca.near_earth_objects));
-      mapArray.forEach((attr, key) => {
-        let formatedArray = {
-          'data': key,
-          'neo': attr
-        };
-        this.asteroides.push(formatedArray);
-      });
+      this.asteroides = Util.dataToModel(busca.near_earth_objects);
       this.asteroides = this.sortByDate(this.asteroides);
-      console.log(this.asteroides);
     });
   }
 
   private sortByDate(array: Array<any>): Array<any> {
     return array.sort((a, b) => {
-      return +new Date(a.data) - +new Date(b.data);
+      return +new Date(a.date) - +new Date(b.date);
     }).reverse();
   }
 

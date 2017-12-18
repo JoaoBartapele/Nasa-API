@@ -20,18 +20,18 @@ export class HttpService {
   public req(method: RequestMethod, path: string, extras?: any): Observable<Response> {
     if (method === GET) {
       let str: string = '';
-      console.log('e', typeof(extras));
+      // console.log('e', typeof(extras));
       for (let attr in extras) {
         if (extras.hasOwnProperty(attr)) {
           if (extras[attr] && typeof extras[attr] !== 'undefined') {
-            console.log('11', encodeURI(extras[attr]));
+            // console.log('11', encodeURI(extras[attr]));
             str += '&' + attr + '=' + encodeURI(extras[attr]);
           }
         }
       }
       if (str.length > 0 ) {
         str = '?' + str.substr(1) + '&' +  APIKEY;
-        console.log(str);
+        // console.log(str);
       }
       path += str;
     }

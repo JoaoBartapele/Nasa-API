@@ -11,13 +11,19 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HttpService } from './services/http/http.service';
 import { AsteroidsService } from './services/asteroids/asteroids.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { FastestComponent } from './components/fastest/fastest.component';
+import { TableComponent } from './components/table/table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AsteroidsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent,
+    FastestComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
