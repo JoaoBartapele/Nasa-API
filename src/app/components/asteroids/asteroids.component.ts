@@ -57,7 +57,7 @@ export class AsteroidsComponent implements OnInit {
   }
 
   private testDates(): ValidatorFn {
-    return (g: FormGroup): { [key: string]: boolean } {
+    return (g: FormGroup): { [key: string]: boolean } => {
       let start = g.get('start_date').value;
       let end = g.get('end_date').value;
       if (!start || !end) return null;
