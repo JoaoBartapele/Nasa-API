@@ -13,8 +13,6 @@ export class AlertService {
   private index: number;
   public alertsObs: Observable<AlertModel[]>;
 
-  private save: any[];
-
   private _tbAlert: any = localStorage.getItem('tbAlert');
 
   constructor() {
@@ -49,13 +47,15 @@ export class AlertService {
     return true;
   }
 
-  public deleteAlert(alert: AlertModel) {
+  public deleteAlert(alert: AlertModel): void {
+    this.index = this._tbAlert.indexOf(JSON.stringify(alert));
     this._tbAlert.splice(this.index, 1);
     localStorage.setItem('tbAlert', JSON.stringify(this._tbAlert));
     this.alertsObs = this.getAllAlerts();
+    this.index = null;
   }
 
-  public editAlert(alert: any, save?: boolean): any {
+  public editAlert(alert: any): void {
     if (!this.edit) {
       this.index = this._tbAlert.indexOf(JSON.stringify(alert));
       this.newAlert = new AlertModel(
@@ -76,6 +76,7 @@ export class AlertService {
       localStorage.setItem('tbAlert', JSON.stringify(this._tbAlert));
       this.alertsObs = this.getAllAlerts();
       this.newAlert  = new AlertModel(null, null, null, null);
+      this.index = null;
       this.edit = false;
     }
   }

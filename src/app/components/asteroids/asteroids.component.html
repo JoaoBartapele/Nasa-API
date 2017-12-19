@@ -18,7 +18,11 @@
             #d1="ngbDatepicker"
             formControlName="start_date"
           >
-          <button class="input-group-addon" (click)="d1.toggle()" type="button">
+          <button
+            class="input-group-addon"
+            (click)="d1.toggle()"
+            type="button"
+          >
             <i class="fa fa-calendar" aria-hidden="true"></i>
           </button>
         </div>
@@ -36,14 +40,22 @@
             #d2="ngbDatepicker"
             formControlName="end_date"
           >
-          <button class="input-group-addon" (click)="d2.toggle()" type="button">
+          <button
+            class="input-group-addon"
+            (click)="d2.toggle()"
+            type="button"
+          >
             <i class="fa fa-calendar" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </div>
     <div class="col-6">
-      <button type="button" class="btn btn-light btn-lg" (click)="searchByDate(formBusca.value)">
+      <button
+        type="button"
+        class="btn btn-light btn-lg"
+        (click)="searchByDate(formBusca.value)"
+      >
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </div>

@@ -18,12 +18,12 @@ export class NewAlertComponent implements OnInit {
   ngOnInit() {
   }
 
-  private submit(alert: AlertModel) {
+  private submit(alert: AlertModel): void {
     this.alertService.addAlert(alert);
   }
 
-  private edit(alert: AlertInterface) {
-    this.alertService.editAlert(alert, true);
+  private edit(alert: AlertInterface): void {
+    this.alertService.editAlert(alert);
   }
 
 }

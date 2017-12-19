@@ -2,7 +2,7 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { ViewModel } from './models/view-model';
 
 export class Util {
-  public static formatDate(date: NgbDateStruct ) {
+  public static formatDate(date: NgbDateStruct ): string {
       let dateFormat = date.year.toString() + '-' + date.month.toString() + '-' + date.day.toString();
       return dateFormat;
   }

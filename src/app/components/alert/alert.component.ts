@@ -18,11 +18,11 @@ export class AlertComponent implements OnInit {
   ngOnInit() {
   }
 
-  private deleteAlert(alert: AlertModel) {
+  private deleteAlert(alert: AlertModel): void {
     this.alertService.deleteAlert(alert);
   }
 
-  private editAlert(alert: AlertModel) {
+  private editAlert(alert: AlertModel): void {
     this.alertService.editAlert(alert);
   }
 

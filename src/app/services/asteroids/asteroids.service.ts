@@ -12,7 +12,7 @@ export class AsteroidsService {
     private httpService: HttpService
   ) { }
 
-  public getAsteroides(param?: any) {
+  public getAsteroides(param?: any): Observable<any> {
     let a;
     if (param) a = param;
     else a = {
