@@ -13,13 +13,13 @@ Este projeto foi hospedado no [FireBase](https://firebase.google.com/?hl=pt-br) 
 ## Rotas:
  [/Home](https://asteroids-79f7a.firebaseapp.com/home) - Rota com links para acesso das funcionalidades solicitadas.
  
- [/asteroids](https://asteroids-79f7a.firebaseapp.com/asteroids) - Rota listando os asteroids por data(últimos 5 dias por padrão), você pode selecionar a data de exibição(<b>os ateroides só podem ser listados num periodo de máximo de 7 dias</b>).
+ [/asteroids](https://asteroids-79f7a.firebaseapp.com/asteroids) - Rota listando os asteroides por data(últimos 5 dias por padrão), você pode selecionar a data de exibição(<b>os ateroides só podem ser listados num periodo de máximo de 7 dias</b>).
  
- [/asteroids/fastest](https://asteroids-79f7a.firebaseapp.com/asteroids/fastest) - Rota listando os Asteroids mais rápidos dos ultimos 7 dias.
+ [/asteroids/fastest](https://asteroids-79f7a.firebaseapp.com/asteroids/fastest) - Rota listando os asteroides mais rápidos dos ultimos 7 dias.
  
- [/alert](https://asteroids-79f7a.firebaseapp.com/asteroids/alert) - Rota listando os alertas de asteroids cadastrados.
+ [/alert](https://asteroids-79f7a.firebaseapp.com/asteroids/alert) - Rota listando os alertas de asteroides cadastrados.
  
- [/alert/new](https://asteroids-79f7a.firebaseapp.com/asteroids/alert/new) - Rota para cadatro de alertas de asteroids.
+ [/alert/new](https://asteroids-79f7a.firebaseapp.com/asteroids/alert/new) - Rota para cadatro de alertas de asteroides.
 
 
 
