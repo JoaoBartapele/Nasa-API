@@ -21,7 +21,7 @@ export class NewAlertComponent implements OnInit {
 
   constructor(
     private alertService: AlertService,
-    private fb: FormBuilder;
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
