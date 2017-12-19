@@ -55,9 +55,16 @@
         type="button"
         class="btn btn-light btn-lg"
         (click)="searchByDate(formBusca.value)"
+        [disabled]="formBusca.hasError('invalidDate')"
+        [class.bg-danger]="formBusca.hasError('invalidDate')"
       >
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
+      <div *ngIf="formBusca.hasError('invalidDate')">
+        <span class="text-danger">
+          O periodo não pode ser maior que 7 dias.
+        </span>
+      </div>
     </div>
   </form>
   <div class="mt-3">

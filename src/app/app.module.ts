@@ -17,6 +17,7 @@ import { TableComponent } from './components/table/table.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { NewAlertComponent } from './components/new-alert/new-alert.component';
 import { AlertService } from './services/alert/alert.service';
+import { NumberMaskDirective } from './directives/number.directive';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AlertService } from './services/alert/alert.service';
     FastestComponent,
     TableComponent,
     AlertComponent,
-    NewAlertComponent
+    NewAlertComponent,
+    NumberMaskDirective
   ],
   imports: [
     BrowserModule,

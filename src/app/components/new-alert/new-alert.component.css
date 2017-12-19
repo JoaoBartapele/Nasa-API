@@ -1,0 +1,3 @@
+.ng-invalid.ng-dirty:not(form):not([formGroupName]) {
+  border: 1px solid #a94442;
+}

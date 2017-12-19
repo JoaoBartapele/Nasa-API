@@ -4,10 +4,10 @@
       Novo Alerta
     </span>
   </div>
-  <form>
+  <form [formGroup]="formNew">
     <div class="col-6">
       <label for="name">
-        Nome:
+        *Nome:
       </label>
       <input
         id="name"
@@ -16,20 +16,37 @@
         class="form-control"
         placeholder="Nome do Alerta"
         [(ngModel)]="alertService.newAlert.name"
+        formControlName="name"
       />
+      <div *ngIf="formNew.get('name').hasError('required') && formNew.get('name').dirty">
+        <span class="text-danger">
+          Este campo é obrigatório, por favor preencher.
+        </span>
+      </div>
       <label for="email">
-        E-mail:
+        *E-mail:
       </label>
       <input
         id="email"
         name="email"
-        type="text"
+        type="email"
         class="form-control"
         placeholder="E-mail"
         [(ngModel)]="alertService.newAlert.email"
+        formControlName="email"
       />
+      <div *ngIf="formNew.get('email').hasError('required') && formNew.get('email').dirty">
+        <span class="text-danger">
+          Este campo é obrigatório, por favor preencher.
+        </span>
+      </div>
+      <div *ngIf="formNew.get('email').hasError('pattern') && formNew.get('email').dirty">
+        <span class="text-danger">
+          Preencher o E-mail no seguinte formato: 'aaa@aaa.aaa'.
+        </span>
+      </div>
       <label for="valocity">
-        Valocidade:
+        *Velocidade:
       </label>
       <input
         id="valocity"
@@ -38,14 +55,23 @@
         class="form-control"
         placeholder="Velocidade"
         [(ngModel)]="alertService.newAlert.velocity"
+        formControlName="velocity"
+        appNumberMask
       />
+      <div *ngIf="formNew.get('velocity').hasError('required') && formNew.get('velocity').dirty">
+        <span class="text-danger">
+          Este campo é obrigatório, por favor preencher.
+        </span>
+      </div>
     </div>
     <div class="col-6">
       <button
-      *ngIf="!alertService.edit"
+        *ngIf="!alertService.edit"
+        [disabled]="!formNew.valid"
         type="button"
         class="form-control btn btn-success mt-3"
         (click)="submit(alertService.newAlert)"
+        title="Adição de alerta. TODOS OS CAMPOS SÃO OBRIGATÓRIOS"
       >
         Adicionar
         <i class="fa fa-plus-circle" aria-hidden="true"></i>

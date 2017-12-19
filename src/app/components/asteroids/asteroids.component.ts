@@ -8,6 +8,7 @@ import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
 import * as moment from 'moment';
+import { ValidatorFn } from '@angular/forms/src/directives/validators';
 
 @Component({
   selector: 'app-asteroids',
@@ -31,7 +32,7 @@ export class AsteroidsComponent implements OnInit {
       start_date: new FormControl(''),
       end_date: new FormControl(''),
       detailed: new FormControl(false)
-    });
+    }, { validator: this.testDates()});
 
     this.astService.getAsteroides().subscribe((busca: Busca) => {
       this.asteroides = Util.dataToModel(busca.near_earth_objects);
@@ -53,6 +54,18 @@ export class AsteroidsComponent implements OnInit {
     return array.sort((a, b) => {
       return +new Date(a.date) - +new Date(b.date);
     }).reverse();
+  }
+
+  private testDates(): ValidatorFn {
+    return (g: FormGroup): { [key: string]: boolean } {
+      let start = g.get('start_date').value;
+      let end = g.get('end_date').value;
+      if (!start || !end) return null;
+      start = new Date(start.month + '-' + start.day + '-' + start.year);
+      end = new Date(end.month + '-' + end.day + '-' + end.year);
+      let res = (end - start) / (24 * 60 * 60 * 1000);
+      return res <= 7 ? null : { invalidDate: true };
+    };
   }
 
 }
