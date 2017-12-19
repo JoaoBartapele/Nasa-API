@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="mt-2 mb-3">
+    <button
+      type="button"
+      class="btn"
+      routerLink="new"
+    >
+      Novo
+    </button>
+    <button
+      type="button"
+      class="btn"
+      (click)="clear()"
+    >
+      Limpar Banco
+    </button>
+  </div>
+  <table class="table table-striped">
+    <thead class="mx-auto">
+      <th>
+        Data cadastro
+      </th>
+      <th>
+        Nome
+      </th>
+      <th>
+        E-mail
+      </th>
+      <th>
+        Velocidade do asteroid
+      </th>
+      <th>
+        Ações
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alert of this.alertService.alertsObs | async">
+        <td>
+          {{alert.date}}
+        </td>
+        <td>
+          {{alert.name}}
+        </td>
+        <td>
+          {{alert.email}}
+        </td>
+        <td>
+          {{alert.velocity}}
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-sm btn-primary"
+            (click)="editAlert(alert)"
+            routerLink="new"
+          >
+            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            (click)="deleteAlert(alert)"
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>

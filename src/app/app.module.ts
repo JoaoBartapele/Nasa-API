@@ -14,6 +14,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { FastestComponent } from './components/fastest/fastest.component';
 import { TableComponent } from './components/table/table.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { NewAlertComponent } from './components/new-alert/new-alert.component';
+import { AlertService } from './services/alert/alert.service';
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { TableComponent } from './components/table/table.component';
     PageNotFoundComponent,
     HomeComponent,
     FastestComponent,
-    TableComponent
+    TableComponent,
+    AlertComponent,
+    NewAlertComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { TableComponent } from './components/table/table.component';
   ],
   providers: [
     HttpService,
-    AsteroidsService
+    AsteroidsService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

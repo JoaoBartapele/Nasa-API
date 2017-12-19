@@ -1,3 +1,4 @@
+/** Model para intelisense da IDE */
 class NEO {
     absolute_magnitude_h: number;
     close_approach_data: any[];

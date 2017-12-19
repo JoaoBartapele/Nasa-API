@@ -1,0 +1,64 @@
+<div class="container">
+  <div>
+    <span class="display-3">
+      Novo Alerta
+    </span>
+  </div>
+  <form>
+    <div class="col-6">
+      <label for="name">
+        Nome:
+      </label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        class="form-control"
+        placeholder="Nome do Alerta"
+        [(ngModel)]="alertService.newAlert.name"
+      />
+      <label for="email">
+        E-mail:
+      </label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+        class="form-control"
+        placeholder="E-mail"
+        [(ngModel)]="alertService.newAlert.email"
+      />
+      <label for="valocity">
+        Valocidade:
+      </label>
+      <input
+        id="valocity"
+        name="velocity"
+        type="text"
+        class="form-control"
+        placeholder="Velocidade"
+        [(ngModel)]="alertService.newAlert.velocity"
+      />
+    </div>
+    <div class="col-6">
+      <button
+      *ngIf="!alertService.edit"
+        type="button"
+        class="form-control btn btn-success mt-3"
+        (click)="submit(alertService.newAlert)"
+      >
+        Adicionar
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </button>
+      <button
+        *ngIf="alertService.edit"
+        type="button"
+        class="form-control btn btn-success mt-3"
+        (click)="edit(alertService.newAlert)"
+      >
+        Editar
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </button>
+    </div>
+  </form>
+</div>
