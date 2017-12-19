@@ -1,6 +1,6 @@
 # Nasa-API
 
-Este projeto foi hosteado na ferramenta [FireBase](https://firebase.google.com/?hl=pt-br) do Google e pode ser acessado por esse link [AQUI](https://asteroids-79f7a.firebaseapp.com/asteroids).
+Este projeto foi hosteado na ferramenta [FireBase](https://firebase.google.com/?hl=pt-br) do Google e pode ser acessado por esse link [AQUI](https://asteroids-79f7a.firebaseapp.com/home).
 
 * Projeto desenvolvido em Angualar 5 e Bootstrap 4.0.0
 
